@@ -6,8 +6,8 @@ from datetime import datetime
 import time,random,sys,json,codecs,threading,glob,re,ast,os,subprocess,requests
 
 cl = LINETCR.LINE()
-cl.login(qr=True)
-#cl.login(token='')
+#cl.login(qr=True)
+cl.login(token="Enbn6aG03Gkn5XCjT5I4.x6EvjLE74Nmu1Wo4pafGra.WnMnGPTIQgachaSKVZReFwpo5q+8LnA2HOnOJEDgRIA=")"
 cl.loginResult()
 print "===[Login Success]==="
 
@@ -53,9 +53,9 @@ helpMessage ="""
 ► Kill ban
 """
 
-mid = cl.getProfile().mid
-Creator="ud8c4d53f17999c8e029827b67af3b06a"
-admin=[""]
+mid = cl.getProfile().mid ["u5fa7952657bbe27314d703b83c016044"]
+Creator=["u5fa7952657bbe27314d703b83c016044"]
+admin=["u5fa7952657bbe27314d703b83c016044"]
 
 contact = cl.getProfile()
 profile = cl.getProfile()
@@ -248,7 +248,7 @@ def bot(op):
 #--------------------------------------------------------
             elif msg.text in ["Creator"]:
                 msg.contentType = 13
-                msg.contentMetadata = {'mid': Creator}
+                msg.contentMetadata = {'mid': "u5fa7952657bbe27314d703b83c016044"}
                 cl.sendMessage(msg)
 		cl.sendText(msg.to,"Itu Yang Bikin BOT")
 #--------------------------------------------------------
@@ -426,33 +426,7 @@ def bot(op):
 		        cl.sendMessage(msg)
 		    except Exception as e:
 			print str(e)		
-#-------------------------------------------------------------
-            elif msg.text in ["tagall"]:
-               group = cl.getGroup(msg.to)
-                nama = [contact.mid for contact in group.members]
-
-                    cb = ""
-                    cb2 = ""
-                    strt = int(0)
-                    akh = int(0)
-                    for md in nama:
-                      akh = akh + int(5)
-
-                    cb += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(md)+"},"""
-
-                   strt = strt + int(6)
-                   akh = akh + 1
-                   cb2 += "@nrik "
-
-                   cb = (cb[:int(len(cb)-1)])
-                      msg.contentType = 0
-                      msg.text = cb2
-                      msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+cb+']}','EMTVER':'4'}
-
-                   try:
-                      cl.sendMessage(msg)
-                      except Exception as error:
-                            print error			
+			
 #--------------------------CEK SIDER------------------------------
 
             elif "Setview" in msg.text:
@@ -554,7 +528,7 @@ def bot(op):
 		bc = msg.text.replace("Bc: ","")
 		gid = cl.getGroupIdsJoined()
 		for i in gid:
-		    cl.sendText(i,"=======[BROADCAST]=======\n\n"+bc+"\n\nContact Me : line.me/ti/p/~@xpk5386g")
+		    cl.sendText(i,"=======[BROADCAST]=======\n\n"+bc+"\n\nContact Me : line.me/ti/p/~boy29putra")
 		cl.sendText(msg.to,"Success BC BosQ")
 #--------------------------------------------------------
             elif msg.text in ["Cancelall"]:
@@ -583,7 +557,7 @@ def bot(op):
 		    url = cl.activity(limit=1)
 		    print url
 		    cl.like(url['result']['posts'][0]['userInfo']['mid'], url['result']['posts'][0]['postInfo']['postId'], likeType=1001)
-		    cl.comment(url['result']['posts'][0]['userInfo']['mid'], url['result']['posts'][0]['postInfo']['postId'], "Mau Bot Protect?\nFollow ig : @rid1bdbx\nLalu dm ke dia")
+		    cl.comment(url['result']['posts'][0]['userInfo']['mid'], url['result']['posts'][0]['postInfo']['postId'], "Auto Like By BABANG_ADHI\n Id line boy29putra")
 		    cl.sendText(msg.to, "Success~")
 		except Exception as E:
 		    try:
