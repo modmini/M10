@@ -425,8 +425,34 @@ def bot(op):
 		    try:
 		        cl.sendMessage(msg)
 		    except Exception as e:
-			print str(e)
+			print str(e)		
+#-------------------------------------------------------------
+            elif msg.text in ["tagall"]:
+               group = cl.getGroup(msg.to)
+                nama = [contact.mid for contact in group.members]
 
+                    cb = ""
+                    cb2 = ""
+                    strt = int(0)
+                    akh = int(0)
+                    for md in nama:
+                      akh = akh + int(5)
+
+                    cb += """{"S":"""+json.dumps(str(strt))+""","E":"""+json.dumps(str(akh))+""","M":"""+json.dumps(md)+"},"""
+
+                   strt = strt + int(6)
+                   akh = akh + 1
+                   cb2 += "@nrik "
+
+                   cb = (cb[:int(len(cb)-1)])
+                      msg.contentType = 0
+                      msg.text = cb2
+                      msg.contentMetadata ={'MENTION':'{"MENTIONEES":['+cb+']}','EMTVER':'4'}
+
+                   try:
+                      cl.sendMessage(msg)
+                      except Exception as error:
+                            print error			
 #--------------------------CEK SIDER------------------------------
 
             elif "Setview" in msg.text:
